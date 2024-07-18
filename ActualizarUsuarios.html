@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar datos</title>
+    <link rel="stylesheet" href="ActualizarUsuarios.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Actualizar datos</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+                    <div class="buscador">
+                        <form id="formBusqueda">
+                            <h2>Buscar: <input type="text" id="busqueda" name="busqueda" placeholder="Número de socio" required></h2>
+                        </form>
+
+            </div>
+        </aside>
+
+        <div class="content">
+            <div class="form-container">
+                <form id="formActualizar" action="ActualizarUsuarios.php" method="post">
+                    <div class="datosPersonales">
+                        <h2>Datos Personales</h2>
+                        <input type="text" id="nombreInput" name="nombre" placeholder="Nombre completo" required>
+                        <input type="text" id="edadInput" name="edad" placeholder="Edad" required>
+                        <h4>Fecha de nacimiento</h4>
+                        <input type="date" id="nacimientoInput" name="nacimiento" placeholder="Fecha de nacimiento" required>
+                        <input type="text" id="generoInput" name="genero" placeholder="Género" required>
+                    </div>
+                    <div class="datosContacto">
+                        <h2>Datos de Contacto</h2>
+                        <input type="email" id="emailInput" name="email" placeholder="Correo electrónico" required>
+                        <input type="tel" id="telefonoInput" name="telefono" placeholder="Número de teléfono" required>
+                        <input type="text" id="direccionInput" name="direccion" placeholder="Dirección" required>
+                    </div>
+                    <div class="datosMembresia">
+                        <h2>Detalles de la Membresía</h2>
+                        <input type="text" id="tipoMembresiaInput" name="tipoMembresia" placeholder="Tipo de membresía" required>
+                        <input type="text" id="numerodesocioInput" name="numerodesocio" placeholder="Número de socio" required>
+                        <h4>Fecha de inicio</h4>
+                        <input type="date" id="fechaInicioInput" name="fechaInicio" placeholder="Fecha de inicio" required>
+                        <h4>Fecha de fin</h4>
+                        <input type="date" id="fechaFinInput" name="fechaFin" placeholder="Fecha de fin" required>
+                    </div>
+                    <button type="submit" class="submit-btn"><b>Actualizar</b></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#formBusqueda').on('submit', function(event) {
+                event.preventDefault();
+                var numSocio = $('#busqueda').val();
+                buscarUsuario(numSocio);
+            });
+
+            $('#formActualizar').on('submit', function(event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+                actualizarUsuario(formData);
+            });
+        });
+
+        function buscarUsuario(numSocio) {
+            $.ajax({
+                url: 'BuscarUsuariosM.php',
+                type: 'POST',
+                data: { numSocio: numSocio },
+                dataType: 'json',
+                success: function(data) {
+                    if (data) {
+                        $('#nombreInput').val(data.nombre);
+                        $('#edadInput').val(data.edad);
+                        $('#nacimientoInput').val(data.fechaNacimiento);
+                        $('#generoInput').val(data.genero);
+                        $('#emailInput').val(data.correo);
+                        $('#telefonoInput').val(data.telefono);
+                        $('#direccionInput').val(data.direccion);
+                        $('#numerodesocioInput').val(data.NoSocio);
+                        $('#tipoMembresiaInput').val(data.TipoMembresia);
+                        $('#fechaInicioInput').val(data.FechaInicio);
+                        $('#fechaFinInput').val(data.FechaFin);
+                    } else {
+                        alert('No se encontraron datos para el número de socio ingresado.');
+                        limpiarCampos();
+                    }
+                },
+                error: function() {
+                    alert('Error al cargar los datos');
+                }
+            });
+        }
+
+        function actualizarUsuario(formData) {
+            $.ajax({
+                url: 'ActualizarUsuarios.php',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    alert(response); // Mostrar mensaje de éxito o error
+                    if (response === "Usuario actualizado correctamente") {
+                        window.location.href = 'Principal.html'; // Redirigir a la página principal
+                    }
+                },
+                error: function() {
+                    alert('Error al actualizar los datos');
+                }
+            });
+        }
+
+        function limpiarCampos() {
+            $('input[type="text"]').val('');
+            $('input[type="email"]').val('');
+            $('input[type="tel"]').val('');
+            $('input[type="date"]').val('');
+        }
+    </script>
+</body>
+</html>

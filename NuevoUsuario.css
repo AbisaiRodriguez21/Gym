@@ -1,0 +1,79 @@
+body {
+    background-image: url(Imagenes/fondoSesion.jpg);
+    background-repeat: no-repeat;
+    padding: 1px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background: linear-gradient(to right, #f5ffd9, #f9ffc3, #f6ffa9);
+    padding: 1px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    text-align: center;
+    text-shadow: 3px -2px 0 #dad8d8;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+.form-container {
+    background: linear-gradient(to top, #f5ffd9, #f9ffc3, #f6ffa9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 480px;
+}
+
+form h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    transition: transform 0.3s
+}
+input:hover{
+    border-color: #1b4ffa;
+    transform: scale(1.01);
+    border-style:groove;
+}
+
+button.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to left, #bbf8f4, #9bfffa);
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button.submit-btn:hover {
+    background: linear-gradient(to top, #88f5ee, #aafffb);
+    
+}

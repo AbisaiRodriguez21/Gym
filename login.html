@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <form action="login.php" method="post">
+            <h1 class="h3 mb-3 fw-normal text-center">Optimus Gym Life & Fitness</h1>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" name="usuario" placeholder="Usuario" required>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="password" class="form-control" id="floatingPassword" name="contrasena" placeholder="Contraseña" required>
+            </div>
+            <button class="btn btn-primary w-100 py-2" type="submit">Aceptar</button>
+            
+            <p class="mt-5 mb-3 text-muted text-center">&copy; 2024</p>
+        </form>
+    </div>
+
+    <script>
+        // Mostrar alertas basadas en los parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+
+        if (error === 'usuario') {
+            alert('Usuario no encontrado');
+        } else if (error === 'contraseña') {
+            alert('Contraseña incorrecta');
+        }
+    </script>
+</body>
+</html>

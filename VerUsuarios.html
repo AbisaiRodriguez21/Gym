@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="VerUsuarios.css">
+    <style>
+        .vigente {
+            background-color: #c3e6cb; /* Verde */
+        }
+        .proxima-expiracion {
+            background-color: #f5c6cb; /* Rojo */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Lista de Usuarios</h1>
+        </div>
+        <div class="buscador">
+            <form id="formBusqueda">
+                <h2>Buscar: <input type="text" id="busqueda" name="busqueda" placeholder="Número de socio" required></h2>
+            </form>
+        </div>
+    </header>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Género</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Número de Socio</th>
+                    <th>Tipo de Membresía</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
+                </tr>
+            </thead>
+            <tbody id="tablaUsuarios">
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            cargarUsuarios(); // Cargar usuarios al cargar la página por primera vez
+
+            $('#formBusqueda').submit(function(event) {
+                event.preventDefault(); // Evitar envío por defecto del formulario
+
+                var numSocio = $('#busqueda').val();
+
+                $.ajax({
+                    url: 'VerUsuarios.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { numSocio: numSocio },
+                    success: function(data) {
+                        var tablaUsuarios = $('#tablaUsuarios');
+                        tablaUsuarios.empty(); // Limpiar tabla antes de insertar nuevos datos
+
+                        data.forEach(function(usuario) {
+                            var fila = '<tr class="' + obtenerClaseFechaFin(usuario.FechaFin) + '">' +
+                                '<td>' + usuario.nombre + '</td>' +
+                                '<td>' + usuario.edad + '</td>' +
+                                '<td>' + usuario.fechaNacimiento + '</td>' +
+                                '<td>' + usuario.genero + '</td>' +
+                                '<td>' + usuario.correo + '</td>' +
+                                '<td>' + usuario.telefono + '</td>' +
+                                '<td>' + usuario.direccion + '</td>' +
+                                '<td>' + usuario.NoSocio + '</td>' +
+                                '<td>' + usuario.TipoMembresia + '</td>' +
+                                '<td>' + usuario.FechaInicio + '</td>' +
+                                '<td>' + usuario.FechaFin + '</td>' +
+                                '</tr>';
+                            tablaUsuarios.append(fila);
+                        });
+                    },
+                    error: function() {
+                        alert('Error al cargar los datos');
+                    }
+                });
+            });
+        });
+
+        function cargarUsuarios() {
+            $.ajax({
+                url: 'VerUsuarios.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var tablaUsuarios = $('#tablaUsuarios');
+                    tablaUsuarios.empty(); // Limpiar tabla antes de insertar nuevos datos
+
+                    data.forEach(function(usuario) {
+                        var fila = '<tr class="' + obtenerClaseFechaFin(usuario.FechaFin) + '">' +
+                            '<td>' + usuario.nombre + '</td>' +
+                            '<td>' + usuario.edad + '</td>' +
+                            '<td>' + usuario.fechaNacimiento + '</td>' +
+                            '<td>' + usuario.genero + '</td>' +
+                            '<td>' + usuario.correo + '</td>' +
+                            '<td>' + usuario.telefono + '</td>' +
+                            '<td>' + usuario.direccion + '</td>' +
+                            '<td>' + usuario.NoSocio + '</td>' +
+                            '<td>' + usuario.TipoMembresia + '</td>' +
+                            '<td>' + usuario.FechaInicio + '</td>' +
+                            '<td>' + usuario.FechaFin + '</td>' +
+                            '</tr>';
+                        tablaUsuarios.append(fila);
+                    });
+                },
+                error: function() {
+                    alert('Error al cargar los datos');
+                }
+            });
+        }
+
+        function obtenerClaseFechaFin(fechaFin) {
+            var fechaFin = new Date(fechaFin);
+            var hoy = new Date();
+            var diasRestantes = Math.ceil((fechaFin - hoy) / (1000 * 60 * 60 * 24)); // Calcula días restantes
+
+            if (diasRestantes <= 5) {
+                return 'proxima-expiracion';
+            } else {
+                return 'vigente';
+            }
+        }
+    </script>
+</body>
+</html>

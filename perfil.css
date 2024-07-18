@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url(Imagenes/fondoVerUsuarios);
+}
+
+.perfil-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.perfil-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfil-foto {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Asegura que la imagen se recorte y se ajuste al tamaño especificado */
+    border-radius: 50%; /* Hace la imagen redonda, opcional */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0 0 0;
+}
+
+.logo-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.editable-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.edit-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.save-btn {
+    margin-top: 40px;
+    background-color: #6dd3fc;
+    color: #212529;
+    border: none;
+    width: 150px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+}
+
+.save-btn:hover {
+    transform: scale(1.03);
+    background-color: #47c9ce;
+}

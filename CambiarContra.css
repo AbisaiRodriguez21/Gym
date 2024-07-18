@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+background-image: url(Imagenes/fondoVerUsuarios);}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+input[type="text"]:hover,
+input[type="password"]:hover {
+    border-color: rgb(153, 214, 255);
+    transform: scale(1.05); /* Aumentar el tamaño en un 5% al pasar el mouse por encima */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to left, #3cf5e8, #9bfffa);
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to top, #88f5ee, #aafffb);
+    transform: scale(1.05);
+    }

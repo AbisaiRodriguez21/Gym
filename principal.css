@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('Imagenes/fondoPrincipal'); /* Ruta y nombre del archivo de imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+}
+
+
+header {
+
+    background: linear-gradient(to right, #9eff8a, #d4f776, #f3ff85);
+    color: #212529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btnheader {
+    background: linear-gradient(to left, #bbf8f4, #9bfffa);
+    color: #212529;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 2px solid #000;
+
+}
+
+.btnaside {
+    margin-top: 40px;
+    margin-left: 80px;
+    background: linear-gradient(to left, #bbf8f4, #9bfffa);
+    color: #212529;
+    border: none;
+    width: 150px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #000;
+    transition: background-color 0.5s ease;
+    font-size: 15px;
+}
+
+.Titulo-aside {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 8px;
+
+}
+
+.btnaside:hover, .btnheader:hover {
+    transform: scale(1.04);
+    background: linear-gradient(to top, #88f5ee, #aafffb);
+
+}
+
+.btnheader:active {
+    transform: translateY(1px);
+}
+
+h1 {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    padding-top: 10px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.calendar-container {
+    flex: 1;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.calendar-container iframe {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.sidebar {
+    width: 300px;
+    background: linear-gradient(to top, #9eff8a, #d4f776, #f3ff85);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background: linear-gradient(to right, #f5ffd9, #f9ffc3);
+    color: #0a0a0a;
+    text-align: center;
+    height: 40px;
+    padding: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario nuevo</title>
+    <link rel="stylesheet" href="NuevoUsuario.css">
+</head>
+<body>
+    <header>
+        <h1>Crear usuario nuevo</h1>
+    </header>
+    <div class="form-container">
+        <form action="NuevoUsuario.php" method="post">
+            <div class="datosPersonales">
+                <h2>Datos Personales</h2>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                <input type="text" id="edad" name="edad" placeholder="Edad" required>
+                <h4>Fecha de nacimiento</h4>
+                <input type="date" id="nacimiento" name="nacimiento" placeholder="Fecha de nacimiento" required>
+                <input type="text" id="genero" name="genero" placeholder="Género" required>
+            </div>
+            <div class="datosContacto">
+                <h2>Datos de Contacto</h2>
+                <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono" required>
+                <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+            </div>
+            <div class="datosMembresia">
+                <h2>Detalles de la Membresía</h2>
+                <input type="text" id="tipoMembresia" name="tipoMembresia" placeholder="Tipo de membresía" required>
+                <input type="text" id="numerodesocio" name="numerodesocio" placeholder="numero de socio" required>
+                <h4>Fecha de inicio</h4>
+                <input type="date" id="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio" required>
+                <h4>Fecha de fin</h4>
+                <input type="date" id="fechaFin" name="fechaFin" placeholder="Fecha de fin" required>
+            </div>
+            <button type="submit" class="submit-btn"><b>Registrar</b></button>
+        </form>
+    </div>
+</body>
+</html>

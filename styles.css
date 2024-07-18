@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: url('Imagenes/fondoSesion.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.form-container {
+  background-image: url('Imagenes/lobi.jpg');
+  padding: 30px; 
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+.form-floating label {
+  color: #6c757d;
+}
+
+.btn-primary { 
+  background-color: #5bff7e;
+  border-color: #a09a8b;
+  margin-top: 8px;
+  padding: 10px; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
+  border-radius: 8px;
+  width: 200px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #4de26d;
+  border-color: #d2d2d3;
+  transform: scale(1.03);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+#floatingInput, #floatingPassword {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 8px; 
+  width: 400px; /* Igualar el ancho */
+}
+
+h1 {
+  text-decoration: dotted;
+  text-indent: 8px;
+}

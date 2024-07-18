@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="principal.css">
+</head>
+<body>
+    <header>
+        <button class="btnheader" onclick="perfil()">Mi perfil</button>
+        <h1>Optimus Gym Life & Fitness</h1>
+        <button class="btnheader" onclick="cerrar()">Cerrar sesión</button>
+    </header>
+
+    <main>
+        <div class="container">
+            <aside class="sidebar">
+                <div class="Titulo-aside"><b><h2>Miembros</h2></b></div>
+                <div class="btn-group">
+                    <button class="btnaside" onclick="NuevoUsuario()">Nuevo Usuario</button><br>
+                    <button class="btnaside" onclick="VerUsuarios()">Ver Usuarios</button><br>
+                    <button class="btnaside" onclick="ActualizarUsuarios()">Actualizar Usuarios</button>
+                </div>
+            </aside>
+            <div class="calendar-container">
+                <iframe src="https://calendar.google.com/calendar/embed?src=es.mexican%23holiday%40group.v.calendar.google.com&ctz=America%2FMexico_City" style="border: 0" width="650" height="450" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">© 2024 Optimus Gym Life & Fitness. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script>
+        function NuevoUsuario() {
+            window.location.href = 'NuevoUsuario.html';
+        }
+
+        function VerUsuarios() {
+            window.location.href = 'VerUsuarios.html';
+        }
+
+        function ActualizarUsuarios() {
+            window.location.href = 'ActualizarUsuarios.html';
+        }
+
+        function perfil() {
+            window.location.href = 'perfil.php'; // Redirige a la página perfil.html
+        }
+
+        function cerrar() {
+            window.location.href = 'login.html'; // Redirige a la página de inicio de sesión
+        }
+    </script>
+</body>
+</html>

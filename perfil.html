@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+    <form action="modificarPerfil.php" method="post" enctype="multipart/form-data">
+        <div class="perfil-container">
+            <div class="perfil-content">
+                <!-- Mostrar la foto de perfil -->
+                <img id="perfil-foto" src="data:image/jpeg;base64,<?php echo $fotoContenido; ?>" alt="Foto de perfil" class="perfil-foto">
+                <div class="editable-info">
+                    <h3>
+                        <div class="info-item">
+                            <img src="Imagenes/iconomodificar.png" alt="Editar" class="edit-icon" onclick="editarNombre()">
+                            <span id="nombre">Nombre Completo: <?php echo $nombre; ?></span>
+                            <input type="hidden" id="input-nombre" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
+                        </div><br>
+                        <div class="info-item">
+                            <img src="Imagenes/iconomodificar.png" alt="Editar" class="edit-icon" onclick="editarEdad()">
+                            <span id="edad">Edad: <?php echo $edad; ?></span>
+                            <input type="hidden" id="input-edad" name="edad" value="<?php echo htmlspecialchars($edad); ?>">
+                        </div>
+                    </h3>
+                </div>
+            </div>
+            <button class="btnaside" onclick="NuevoUsuario()">Nuevo Usuario</button>
+            <button type="button" class="logo-btn" onclick="document.getElementById('fileInput').click()">
+                <img src="Imagenes/cambiarfotoperfil.webp" alt="Cambiar foto" class="logo">
+            </button>
+            <input type="file" id="fileInput" name="perfil-foto" style="display:none" onchange="mostrarFoto(event)">
+            <button type="submit" class="save-btn">Guardar cambios</button>
+        </div>
+    </form>
+    <script>
+        function editarNombre() {
+            let nombre = prompt('Introduce tu nombre:');
+            if (nombre) {
+                document.getElementById('nombre').textContent = 'Nombre Completo: ' + nombre;
+                document.getElementById('input-nombre').value = nombre;
+            }
+        }
+
+        function editarEdad() {
+            let edad = prompt('Introduce tu edad:');
+            if (edad) {
+                document.getElementById('edad').textContent = 'Edad: ' + edad;
+                document.getElementById('input-edad').value = edad;
+            }
+        }
+
+        function mostrarFoto(event) {
+            const input = event.target;
+            const reader = new FileReader();
+            reader.onload = function() {
+                const dataURL = reader.result;
+                const perfilFoto = document.getElementById('perfil-foto');
+                perfilFoto.src = dataURL;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+</body>
+</html>
