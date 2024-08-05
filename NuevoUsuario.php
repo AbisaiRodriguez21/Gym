@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
     $fechaInicio = $_POST['fechaInicio'];
     $fechaFin = $_POST['fechaFin'];
 
-    // Preparar la consulta de inserción
     $sql = "INSERT INTO usuarios (nombre, edad, fechaNacimiento, genero, correo, telefono, direccion, NoSocio, TipoMembresia, FechaInicio, FechaFin) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -38,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
         die("Error en la preparación de la consulta: " . $conn->error);
     }
 
-    // Enlazar los parámetros
+
     $stmt->bind_param("sisssssssss", $nombre, $edad, $nacimiento, $genero, $email, $telefono, $direccion, $numerodesocio, $tipoMembresia, $fechaInicio, $fechaFin);
 
-    // Ejecutar la consulta
+   
     if ($stmt->execute()) {
         $message = "Usuario almacenado correctamente";
         echo "<script>
